@@ -1,21 +1,40 @@
-import { Hero } from './components/Hero';
-import { FeaturedCourses } from './components/FeaturedCourses';
-import { Schedule } from './components/Schedule';
-import { AboutVivi } from './components/AboutVivi';
-import { Testimonials } from './components/Testimonials';
-import { Newsletter } from './components/Newsletter';
-import { Footer } from './components/Footer';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Header } from "./components/Header";
+import { HomePage } from "./pages/HomePage";
+import { CoursesPage } from "./pages/CoursesPage";
+import { CourseDetailPage } from "./pages/CourseDetailPage";
+import { NotFound } from "./pages/NotFound";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#F0DAD5]">
-      <Hero />
-      <FeaturedCourses />
-       <Schedule />
-      <AboutVivi />
-      <Testimonials />
-      <Newsletter />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/cursos" element={<CoursesPage />} />
+        <Route path="/cursos/:id" element={<CourseDetailPage />} />
+        <Route
+          path="/consultas"
+          element={
+            <div className="min-h-screen flex items-center justify-center bg-[#F0DAD5]">
+              <h1 className="text-4xl text-[#424658]">
+                Página de Consultas - Próximamente
+              </h1>
+            </div>
+          }
+        />
+        <Route
+          path="/sobre-mi"
+          element={
+            <div className="min-h-screen flex items-center justify-center bg-[#F0DAD5]">
+              <h1 className="text-4xl text-[#424658]">
+                Sobre Mí - Próximamente
+              </h1>
+            </div>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

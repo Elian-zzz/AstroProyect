@@ -1,33 +1,9 @@
 import { ImageWithFallback } from "./ImageWithFallback";
-
-const courses = [
-  {
-    id: 1,
-    title: "Curso de Tarot",
-    image:
-      "https://images.unsplash.com/photo-1600429753199-5376c2738737?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YXJvdCUyMGNhcmRzJTIwc3Bpcml0dWFsfGVufDF8fHx8MTc2NjAzNzIyOHww&ixlib=rb-4.1.0&q=80&w=1080",
-    type: "Grabado",
-    price: "$8,500",
-  },
-  {
-    id: 2,
-    title: "Astrología 1",
-    image:
-      "https://images.unsplash.com/photo-1630236604110-6cdb022470ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc3Ryb2xvZ3klMjBjb25zdGVsbGF0aW9uJTIwc3RhcnN8ZW58MXx8fHwxNzY2MDg5NjQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    type: "En vivo",
-    price: "$12,000",
-  },
-  {
-    id: 3,
-    title: "Astrología y Emociones",
-    image:
-      "https://images.unsplash.com/photo-1762857995413-4f8f827a737a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZWRpdGF0aW9uJTIwd2VsbG5lc3MlMjBlbW90aW9uYWx8ZW58MXx8fHwxNzY2MDg5NjQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    type: "Grabado",
-    price: "$9,500",
-  },
-];
-
+import { getFeaturedCourses } from "../data/coursesData";
+import { Link } from "react-router-dom";
 export function FeaturedCourses() {
+  const courses = getFeaturedCourses(3);
+
   return (
     <section className="py-24 bg-[#BABBB1]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -48,23 +24,31 @@ export function FeaturedCourses() {
                   className="w-full h-full object-cover"
                 />
                 <span className="absolute top-4 right-4 px-4 py-2 bg-[#678973] text-white rounded-full text-sm">
-                  {course.type}
+                  {course.isLive ? "En vivo" : "Grabado"}
                 </span>
               </div>
 
               <div className="p-6 space-y-4">
-                <h3 className="text-2xl text-[#424658]">
-                  {course.title}
-                </h3>
-                <p className="text-3xl text-[#C56B62]">
-                  {course.price}
-                </p>
-                <button className="w-full py-3 bg-[#DEA785] text-white rounded-full hover:bg-[#C79576] transition-colors">
+                <h3 className="text-2xl text-[#424658]">{course.title}</h3>
+                <p className="text-3xl text-[#C56B62]">${course.price}</p>
+                <Link
+                  to={"/cursos/" + course.id}
+                  className="w-full py-3 bg-[#DEA785] text-white rounded-full hover:bg-[#C79576] transition-colors text-center"
+                >
                   Ver curso
-                </button>
+                </Link>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            to="/cursos"
+            className="inline-block px-10 py-4 bg-[#C56B62] text-white rounded-full hover:bg-[#D9A69F] transition-colors text-lg"
+          >
+            Ver más
+          </Link>
         </div>
       </div>
     </section>

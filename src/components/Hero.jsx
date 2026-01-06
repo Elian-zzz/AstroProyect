@@ -1,5 +1,5 @@
-import { ImageWithFallback } from './ImageWithFallback.jsx';
-
+import { ImageWithFallback } from "./ImageWithFallback";
+import { Link } from "react-router-dom";
 export function Hero() {
   return (
     <section className="min-h-screen bg-gradient-to-br from-[#F0DAD5] to-[#BABBB1] relative overflow-hidden">
@@ -14,9 +14,12 @@ export function Hero() {
               Cursos, talleres y sesiones para acompañarte en tu crecimiento.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-8 py-4 bg-[#C56B62] text-white rounded-full hover:bg-[#D9A69F] transition-colors">
+              <Link
+                to="/cursos"
+                className="px-8 py-4 bg-[#C56B62] text-white rounded-full hover:bg-[#D9A69F] transition-colors inline-block text-center"
+              >
                 Ver cursos
-              </button>
+              </Link>
               <button className="px-8 py-4 bg-transparent border-2 border-[#678973] text-[#678973] rounded-full hover:bg-[#678973] hover:text-white transition-colors">
                 Agendar consulta
               </button>
