@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header";
+import { ScrollToTop } from "./components/ScrollToTop";
 // import Header100 from "./components/header/Header100";
 import { HomePage } from "./pages/HomePage";
 import { CoursesPage } from "./pages/CoursesPage";
@@ -11,6 +12,7 @@ export default function App() {
     <>
       {/* <Header /> */}
       <Header />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/cursos" element={<CoursesPage />} />
@@ -21,13 +23,7 @@ export default function App() {
         />
         <Route
           path="/sobre-mi"
-          element={
-            <div className="min-h-screen flex items-center justify-center bg-[#F0DAD5]">
-              <h1 className="text-4xl text-[#424658]">
-                Sobre Mí - Próximamente
-              </h1>
-            </div>
-          }
+          element={<Proximamente children="Sobre mi" />}
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
