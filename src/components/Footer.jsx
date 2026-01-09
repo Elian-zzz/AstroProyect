@@ -1,4 +1,5 @@
-import { Instagram, Facebook, Mail, Youtube } from 'lucide-react';
+import { Instagram, Facebook, Mail, Youtube } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
@@ -10,24 +11,36 @@ export function Footer() {
             <h3 className="text-2xl mb-6">Enlaces rápidos</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-[#BABBB1] hover:text-[#DEA785] transition-colors">
+                <Link
+                  to="/cursos"
+                  className="text-[#BABBB1] hover:text-[#DEA785] transition-colors"
+                >
                   Cursos
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-[#BABBB1] hover:text-[#DEA785] transition-colors">
+                <Link
+                  to="/consultas"
+                  className="text-[#BABBB1] hover:text-[#DEA785] transition-colors"
+                >
                   Consultas
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-[#BABBB1] hover:text-[#DEA785] transition-colors">
+                <Link
+                  to="/sobre-mi"
+                  className="text-[#BABBB1] hover:text-[#DEA785] transition-colors"
+                >
                   Sobre Vivi
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-[#BABBB1] hover:text-[#DEA785] transition-colors">
+                <Link
+                  to="/contacto"
+                  className="text-[#BABBB1] hover:text-[#DEA785] transition-colors"
+                >
                   Contacto
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
