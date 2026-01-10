@@ -1,4 +1,4 @@
-import { Menu, X } from "lucide-react";
+import { Link2OffIcon, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -51,7 +51,7 @@ export function Header({ currentPage, navigateTo }) {
               Consultas
             </NavLink>
             <NavLink
-              to="sobre-mi"
+              to="/sobre-mi"
               className={`hover:text-[#D9A69F] transition-colors ${
                 isActive("sobre-mi") ? "text-[#DEA785] font-semibold" : ""
               }`}
@@ -74,38 +74,38 @@ export function Header({ currentPage, navigateTo }) {
         {isMenuOpen && (
           <nav className="md:hidden py-4 border-t border-[#6C739C]">
             <div className="flex flex-col gap-4">
-              <button
-                onClick={() => handleNavigation("home")}
+              <NavLink
+                to="/"
                 className={`text-left hover:text-[#D9A69F] transition-colors ${
                   isActive("home") ? "text-[#DEA785] font-semibold" : ""
                 }`}
               >
                 Inicio
-              </button>
-              <button
-                onClick={() => handleNavigation("cursos")}
+              </NavLink>
+              <NavLink
+                to="/cursos"
                 className={`text-left hover:text-[#D9A69F] transition-colors ${
                   isActive("cursos") ? "text-[#DEA785] font-semibold" : ""
                 }`}
               >
                 Cursos
-              </button>
-              <button
-                onClick={() => handleNavigation("consultas")}
+              </NavLink>
+              <NavLink
+                to="/consultas"
                 className={`text-left hover:text-[#D9A69F] transition-colors ${
                   isActive("consultas") ? "text-[#DEA785] font-semibold" : ""
                 }`}
               >
                 Consultas
-              </button>
-              <button
-                onClick={() => handleNavigation("sobre-mi")}
+              </NavLink>
+              <NavLink
+                to="/sobre-mi"
                 className={`text-left hover:text-[#D9A69F] transition-colors ${
                   isActive("sobre-mi") ? "text-[#DEA785] font-semibold" : ""
                 }`}
               >
                 Sobre Mí
-              </button>
+              </NavLink>
             </div>
           </nav>
         )}

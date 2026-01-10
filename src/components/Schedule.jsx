@@ -17,7 +17,7 @@ export function Schedule() {
                 </h2>
               </div>
               
-              <div className="grid grid-cols-7 gap-2 mb-8">
+              <div className="grid grid-cols-7 gap-2 mb-8" id='calendario'>
                 {['L', 'M', 'M', 'J', 'V', 'S', 'D'].map((day, i) => (
                   <div
                     key={i}

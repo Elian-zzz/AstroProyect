@@ -5,15 +5,14 @@ export function Hero() {
     <section className="min-h-screen bg-gradient-to-br from-[#F0DAD5] to-[#BABBB1] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 h-screen flex items-center">
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
-          {/* Contenido izquierda */}
-          <div className="space-y-8 z-10">
-            <h1 className="text-5xl lg:text-6xl text-[#424658] leading-tight">
+          <div className="space-y-8 z-10 text-center md:text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#424658] leading-tight mt-70 md:mt-0">
               Desarrolla tu autoconocimiento desde la astrología moderna
             </h1>
-            <p className="text-xl text-[#6C739C] max-w-xl">
+            <p className="text-base sm:text-lg md:text-xl text-[#6C739C] max-w-xl mx-auto md:mx-0">
               Cursos, talleres y sesiones para acompañarte en tu crecimiento.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link
                 to="/cursos"
                 className="px-8 py-4 bg-[#C56B62] text-white rounded-full hover:bg-[#D9A69F] transition-colors inline-block text-center"
