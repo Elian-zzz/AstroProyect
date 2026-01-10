@@ -13,9 +13,11 @@ import { Newsletter } from "../components/Newsletter";
 import { Footer } from "../components/Footer";
 import { getCourseById } from "../data/coursesData";
 import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
-export function CourseDetailPage({ courseId, navigateTo }) {
-  const course = getCourseById(courseId);
+export function CourseDetailPage() {
+  const { id } = useParams();
+  const course = getCourseById(id);
   const [openFaq, setOpenFaq] = useState(null);
 
   if (!course) {
@@ -23,12 +25,9 @@ export function CourseDetailPage({ courseId, navigateTo }) {
       <div className="min-h-screen bg-[#F0DAD5] flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl text-[#424658] mb-4">Curso no encontrado</h1>
-          <button
-            onClick={() => navigateTo("cursos")}
-            className="text-[#C56B62] hover:underline"
-          >
+          <Link to="/cursos" className="text-[#C56B62] hover:underline">
             Volver a cursos
-          </button>
+          </Link>
         </div>
       </div>
     );
@@ -87,19 +86,19 @@ export function CourseDetailPage({ courseId, navigateTo }) {
       {/* Back button */}
       <div className="bg-white border-b border-[#BABBB1]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4">
-          <button
-            onClick={() => navigateTo("cursos")}
+          <Link
+            to="/cursos"
             className="inline-flex items-center gap-2 text-[#6C739C] hover:text-[#C56B62] transition-colors"
           >
             <ArrowLeft size={20} />
             Volver a cursos
-          </button>
+          </Link>
         </div>
       </div>
 
       {/* Hero Section */}
       <section className="relative">
-        <div className="h-96 overflow-hidden">
+        <div className="h-48 sm:h-64 md:h-80 lg:h-96 overflow-hidden">
           <ImageWithFallback
             src={course.image}
             alt={course.title}
@@ -108,45 +107,45 @@ export function CourseDetailPage({ courseId, navigateTo }) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#424658] to-transparent"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="relative -mt-32 bg-white rounded-3xl shadow-2xl p-8 lg:p-12">
-            <div className="grid lg:grid-cols-3 gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="relative -mt-20 sm:-mt-24 md:-mt-28 lg:-mt-32 bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
               {/* Content */}
-              <div className="lg:col-span-2 space-y-6">
-                <div className="flex items-center gap-3">
+              <div className="lg:col-span-2 space-y-4 sm:space-y-6">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                   {course.isLive ? (
-                    <span className="px-4 py-2 bg-[#C56B62] text-white rounded-full text-sm">
+                    <span className="px-3 sm:px-4 py-1 sm:py-2 bg-[#C56B62] text-white rounded-full text-xs sm:text-sm">
                       Curso en vivo
                     </span>
                   ) : (
-                    <span className="px-4 py-2 bg-[#678973] text-white rounded-full text-sm">
+                    <span className="px-3 sm:px-4 py-1 sm:py-2 bg-[#678973] text-white rounded-full text-xs sm:text-sm">
                       Curso grabado
                     </span>
                   )}
-                  <span className="px-4 py-2 bg-[#BABBB1] text-[#424658] rounded-full text-sm">
+                  <span className="px-3 sm:px-4 py-1 sm:py-2 bg-[#BABBB1] text-[#424658] rounded-full text-xs sm:text-sm">
                     {course.level}
                   </span>
                 </div>
 
-                <h1 className="text-4xl lg:text-5xl text-[#424658]">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#424658]">
                   {course.title}
                 </h1>
 
-                <p className="text-xl text-[#6C739C] leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-[#6C739C] leading-relaxed">
                   {course.description}
                 </p>
 
-                <div className="flex items-center gap-6 text-[#6C739C]">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 text-[#6C739C] text-sm sm:text-base">
                   <div className="flex items-center gap-2">
-                    <Clock size={20} />
+                    <Clock size={18} />
                     <span>{course.duration}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Users size={20} />
+                    <Users size={18} />
                     <span>{course.level}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Star size={20} className="fill-[#DEA785] text-[#DEA785]" />
+                    <Star size={18} className="fill-[#DEA785] text-[#DEA785]" />
                     <span>4.9/5</span>
                   </div>
                 </div>
@@ -154,42 +153,53 @@ export function CourseDetailPage({ courseId, navigateTo }) {
 
               {/* Price Card */}
               <div className="lg:col-span-1">
-                <div className="bg-[#F0DAD5] rounded-2xl p-6 space-y-4 sticky top-24">
+                <div className="bg-[#F0DAD5] rounded-2xl p-6 space-y-4 lg:sticky lg:top-24">
                   <div>
-                    <div className="flex items-baseline gap-3">
-                      <p className="text-4xl text-[#424658]">${course.price}</p>
+                    <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-3">
+                      <p className="text-3xl sm:text-4xl text-[#424658]">
+                        ${course.price}
+                      </p>
                       {course.oldPrice && (
-                        <p className="text-xl text-[#6C739C] line-through">
+                        <p className="text-lg sm:text-xl text-[#6C739C] line-through">
                           ${course.oldPrice}
                         </p>
                       )}
                     </div>
                     {course.oldPrice && (
-                      <p className="text-sm text-[#C56B62] mt-1">
+                      <p className="text-xs sm:text-sm text-[#C56B62] mt-2">
                         ¡Ahorrás ${course.oldPrice - course.price}!
                       </p>
                     )}
                   </div>
 
-                  <button className="w-full py-4 bg-[#C56B62] text-white rounded-full hover:bg-[#D9A69F] transition-colors text-lg">
+                  <button className="w-full py-3 sm:py-4 bg-[#C56B62] text-white rounded-full hover:bg-[#D9A69F] transition-colors text-base sm:text-lg">
                     Comprar ahora
                   </button>
 
-                  <button className="w-full py-3 border-2 border-[#C56B62] text-[#C56B62] rounded-full hover:bg-[#C56B62] hover:text-white transition-colors">
+                  <button className="w-full py-2 sm:py-3 border-2 border-[#C56B62] text-[#C56B62] rounded-full hover:bg-[#C56B62] hover:text-white transition-colors text-sm sm:text-base">
                     Consultar por WhatsApp
                   </button>
 
-                  <div className="pt-4 border-t border-[#BABBB1] space-y-2 text-sm text-[#6C739C]">
+                  <div className="pt-4 border-t border-[#BABBB1] space-y-2 text-xs sm:text-sm text-[#6C739C]">
                     <p className="flex items-center gap-2">
-                      <Check size={16} className="text-[#678973]" />
+                      <Check
+                        size={16}
+                        className="text-[#678973] flex-shrink-0"
+                      />
                       Acceso inmediato
                     </p>
                     <p className="flex items-center gap-2">
-                      <Check size={16} className="text-[#678973]" />
+                      <Check
+                        size={16}
+                        className="text-[#678973] flex-shrink-0"
+                      />
                       Certificado incluido
                     </p>
                     <p className="flex items-center gap-2">
-                      <Check size={16} className="text-[#678973]" />
+                      <Check
+                        size={16}
+                        className="text-[#678973] flex-shrink-0"
+                      />
                       Garantía de 7 días
                     </p>
                   </div>
@@ -292,12 +302,12 @@ export function CourseDetailPage({ courseId, navigateTo }) {
                 500 personas en su camino de crecimiento a través de la
                 astrología.
               </p>
-              <button
-                onClick={() => navigateTo("sobre-mi")}
+              <Link
+                to="/sobre-mi"
                 className="inline-block text-[#C56B62] hover:underline"
               >
                 Conocer más →
-              </button>
+              </Link>
             </div>
           </div>
         </div>

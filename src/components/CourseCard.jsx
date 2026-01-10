@@ -1,7 +1,7 @@
 import { ImageWithFallback } from "./ImageWithFallback";
 import { Clock, Users } from "lucide-react";
-
-export function CourseCard({ course, navigateTo }) {
+import { Link } from "react-router-dom";
+export function CourseCard({ course }) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
       {/* Imagen */}
@@ -54,12 +54,12 @@ export function CourseCard({ course, navigateTo }) {
             )}
           </div>
 
-          <button
-            onClick={() => navigateTo("curso-detalle", course.id)}
+          <Link
+            to={"/cursos/" + course.id}
             className="px-6 py-2 bg-[#C56B62] text-white rounded-full hover:bg-[#D9A69F] transition-colors text-sm"
           >
             Ver detalles
-          </button>
+          </Link>
         </div>
       </div>
     </div>

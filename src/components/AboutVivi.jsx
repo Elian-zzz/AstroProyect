@@ -1,5 +1,5 @@
-import { ImageWithFallback } from './ImageWithFallback';
-
+import { ImageWithFallback } from "./ImageWithFallback";
+import { Link } from "react-router-dom";
 export function AboutVivi() {
   return (
     <section className="py-24 bg-[#BABBB1]">
@@ -22,18 +22,23 @@ export function AboutVivi() {
               Conocé a Vivi
             </h2>
             <p className="text-lg text-[#424658] leading-relaxed">
-              Con formación en psicología holística y años de estudio en astrología moderna, 
-              mi misión es acompañarte en tu proceso de autoconocimiento y transformación personal.
+              Con formación en psicología holística y años de estudio en
+              astrología moderna, mi misión es acompañarte en tu proceso de
+              autoconocimiento y transformación personal.
             </p>
             <p className="text-lg text-[#424658] leading-relaxed">
-              Creo en la astrología como una herramienta poderosa para entender nuestros patrones, 
-              sanar nuestras emociones y desarrollar una relación más consciente con nosotros mismos. 
-              A través de mis cursos y sesiones, te invito a explorar tu carta natal como un mapa 
-              hacia el self-care y el crecimiento personal.
+              Creo en la astrología como una herramienta poderosa para entender
+              nuestros patrones, sanar nuestras emociones y desarrollar una
+              relación más consciente con nosotros mismos. A través de mis
+              cursos y sesiones, te invito a explorar tu carta natal como un
+              mapa hacia el self-care y el crecimiento personal.
             </p>
-            <button className="mt-8 px-8 py-4 bg-[#C56B62] text-white rounded-full hover:bg-[#D9A69F] transition-colors">
+            <Link
+              to="/sobre-mi"
+              className="mt-8 px-8 py-4 bg-[#C56B62] text-white rounded-full hover:bg-[#D9A69F] transition-colors"
+            >
               Leer más
-            </button>
+            </Link>
           </div>
         </div>
       </div>

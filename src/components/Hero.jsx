@@ -19,9 +19,12 @@ export function Hero() {
               >
                 Ver cursos
               </Link>
-              <button className="px-8 py-4 bg-transparent border-2 border-[#678973] text-[#678973] rounded-full hover:bg-[#678973] hover:text-white transition-colors">
+              <Link
+                to="/consultas"
+                className="px-8 py-4 bg-transparent border-2 border-[#678973] text-[#678973] rounded-full hover:bg-[#678973] hover:text-white transition-colors"
+              >
                 Agendar consulta
-              </button>
+              </Link>
             </div>
           </div>
 

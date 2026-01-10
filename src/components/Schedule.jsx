@@ -1,8 +1,8 @@
-import { Calendar } from 'lucide-react';
-
+import { Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
 export function Schedule() {
   const daysInMonth = Array.from({ length: 31 }, (_, i) => i + 1);
-  
+
   return (
     <section className="py-24 bg-[#F0DAD5]">
       <div className="max-w-5xl mx-auto px-6 lg:px-12">
@@ -16,9 +16,9 @@ export function Schedule() {
                   Agenda Julio abierta
                 </h2>
               </div>
-              
-              <div className="grid grid-cols-7 gap-2 mb-8" id='calendario'>
-                {['L', 'M', 'M', 'J', 'V', 'S', 'D'].map((day, i) => (
+
+              <div className="grid grid-cols-7 gap-2 mb-8" id="calendario">
+                {["L", "M", "M", "J", "V", "S", "D"].map((day, i) => (
                   <div
                     key={i}
                     className="text-center text-[#6C739C] text-sm py-2"
@@ -31,8 +31,8 @@ export function Schedule() {
                     key={day}
                     className={`text-center py-3 rounded-lg text-[#424658] ${
                       day % 7 === 0 || day % 5 === 0
-                        ? 'bg-[#678973] text-white'
-                        : 'hover:bg-[#BABBB1] cursor-pointer'
+                        ? "bg-[#678973] text-white"
+                        : "hover:bg-[#BABBB1] cursor-pointer"
                     }`}
                   >
                     {day}
@@ -50,7 +50,7 @@ export function Schedule() {
                 Agendar tu revolución solar
               </button>
               <button className="w-full py-4 px-8 bg-transparent border-2 border-[#678973] text-[#678973] rounded-full hover:bg-[#678973] hover:text-white transition-colors">
-                Ver todas las consultas
+                <Link to="/consultas">Ver todas las consultas</Link>
               </button>
             </div>
           </div>

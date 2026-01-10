@@ -7,6 +7,7 @@ import { CoursesPage } from "./pages/CoursesPage";
 import { CourseDetailPage } from "./pages/CourseDetailPage";
 import { NotFound } from "./pages/NotFound";
 import { Proximamente } from "./pages/Proximamente";
+import { UserDashboard } from "./pages/UserDashboard";
 export default function App() {
   return (
     <>
@@ -25,6 +26,7 @@ export default function App() {
           path="/sobre-mi"
           element={<Proximamente children="Sobre mi" />}
         />
+        <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
