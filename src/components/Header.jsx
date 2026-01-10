@@ -2,6 +2,7 @@ import { Link2OffIcon, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Button_Styled from "./UI/button_styled";
+
 export function Header({ currentPage, navigateTo }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -70,7 +71,6 @@ export function Header({ currentPage, navigateTo }) {
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="md:hidden py-4 border-t border-[#6C739C]">
@@ -107,6 +107,7 @@ export function Header({ currentPage, navigateTo }) {
               >
                 Sobre Mí
               </NavLink>
+              <Button_Styled children="Ingresar" to="/dashboard" />
             </div>
           </nav>
         )}
