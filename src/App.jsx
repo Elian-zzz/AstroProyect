@@ -8,6 +8,7 @@ import { CourseDetailPage } from "./pages/CourseDetailPage";
 import { NotFound } from "./pages/NotFound";
 import { Proximamente } from "./pages/Proximamente";
 import { UserDashboard } from "./pages/UserDashboard";
+import { AboutPage } from "./pages/AboutPage";
 export default function App() {
   return (
     <>
@@ -22,10 +23,7 @@ export default function App() {
           path="/consultas"
           element={<Proximamente children="Pagina de consultas" />}
         />
-        <Route
-          path="/sobre-mi"
-          element={<Proximamente children="Sobre mi" />}
-        />
+        <Route path="/sobre-mi" element={<AboutPage />} />
         <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
